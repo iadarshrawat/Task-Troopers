@@ -10,12 +10,13 @@ import conversationRoute from "./routes/conversation.route.js";
 import messageRoute from "./routes/message.route.js";
 import reviewRoute from "./routes/review.route.js";
 import authRoute from "./routes/auth.route.js";
-
+import cookieParser from "cookie-parser";
 
 
 const app = express()
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(cookieParser())
 
 mongoose.set('strictQuery', true)
 dotenv.config();
@@ -30,7 +31,7 @@ const connect = async () => {
 }
 
 
-app.use("/api/user", userRoute);
+app.use("/api/users", userRoute);
 app.use("/api/gigs", gigRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/conversations", conversationRoute);
