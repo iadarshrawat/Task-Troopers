@@ -16,9 +16,9 @@ function Navbar() {
         <div className='navbar'>
             <div className="container">
                 <div className="logo">
-                    {/* <Link to='/'> */}
+                    <Link to='/' className='link'>
                         <span className='text'>fiverr</span>
-                    {/* </Link> */}
+                    </Link>
                     <span className='dot'>.</span>
                 </div>
                 <div className="links">
@@ -36,13 +36,13 @@ function Navbar() {
                                 <div className="option">
                                 {currentUser?.isSeller && (
                                         <>
-                                            <span>Gigs</span>
-                                            <span>Add new Gig</span>
+                                            <Link className='link' to='/mygigs'>Gigs</Link>
+                                            <Link className='link' to='add'>Add new Gig</Link>
                                         </>
                                 )}  
-                                <span>Orders</span>                            
-                                <span>Messages</span>                            
-                                <span>Logout</span>                            
+                                <Link className='link' to='orders'>Orders</Link>                            
+                                <Link className='link' to='messages'>Messages</Link>                            
+                                <Link className='link' to='/'>Logout</Link>                            
                             </div>
                             )}
                         </div>
