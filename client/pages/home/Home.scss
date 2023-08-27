@@ -1,0 +1,50 @@
+.home {
+    .features {
+        background-color: #f1fdf7;
+        display: flex;
+        justify-content: center;
+        padding: 100px 0px;
+
+        .container {
+            width: 1400px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            .item {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                &:first-child{
+                    flex: 2;
+                }
+                &:last-child{
+                    flex: 3
+                }
+                h1 {
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                    line-height: 28px;
+                    letter-spacing: 1px;
+                }
+
+                p {
+                    font-size: 18px;
+                    color: gray;
+                }
+
+                .title {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-weight: 500;
+                }
+
+                video {
+                    width: 720px;
+                }
+            }
+
+        }
+    }
+}
