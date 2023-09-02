@@ -59,7 +59,7 @@ function App() {
           element:<Messages/>
         },
         {
-          path:'/message',
+          path:'/message/:id',
           element:<Message/>
         },
       ]

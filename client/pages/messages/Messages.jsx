@@ -27,7 +27,7 @@ function Messages() {
           </tr>
           <tr className='active'>
             <td> John Doe </td>
-            <td><Link to='message/123' className='link'>{message.substring(0,100)}...</Link></td>
+            <td><Link to='/message/123' className='link'>{message.substring(0,100)}...</Link></td>
             <td>1 day ago</td>
             <td>
               <button>Mark as Read</button>
@@ -35,7 +35,7 @@ function Messages() {
           </tr>
           <tr className='active'>
             <td> John Doe </td>
-            <td><Link to='message/123' className='link'>{message.substring(0,100)}...</Link></td>
+            <td><Link to='/message/123' className='link'>{message.substring(0,100)}...</Link></td>
             <td>1 day ago</td>
             <td>
               <button>Mark as Read</button>
@@ -43,22 +43,22 @@ function Messages() {
           </tr>
           <tr>
             <td> John Doe </td>
-            <td><Link to='message/123' className='link'>{message.substring(0,100)}...</Link></td>
+            <td><Link to='/message/123' className='link'>{message.substring(0,100)}...</Link></td>
             <td>1 day ago</td>
           </tr>
           <tr>
             <td> John Doe </td>
-            <td><Link to='message/123' className='link'>{message.substring(0,100)}...</Link></td>
+            <td><Link to='/message/123' className='link'>{message.substring(0,100)}...</Link></td>
             <td>1 day ago</td>
           </tr>
           <tr>
             <td> John Doe </td>
-            <td><Link to='message/123' className='link'>{message.substring(0,100)}...</Link></td>
+            <td><Link to='/message/123' className='link'>{message.substring(0,100)}...</Link></td>
             <td>1 day ago</td>
           </tr>
           <tr>
             <td> John Doe </td>
-            <td><Link to='message/123' className='link'>{message.substring(0,100)}...</Link></td>
+            <td><Link to='/message/123' className='link'>{message.substring(0,100)}...</Link></td>
             <td>1 day ago</td>
           </tr>
         </table>
