@@ -69,7 +69,6 @@ function Footer() {
             </div>
             <div className="link">
               <img src="./img/accessibility.png" alt="" />
-              <span>English</span>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import './ProjectCard.scss'
 
 function ProjectCard({item}) {
     return (
-        <Link to='/gigs?cat=design'>
+        <Link>
             <div className='projectCard'>
                 <img src={item.img} alt="" />
                 <div className="info">

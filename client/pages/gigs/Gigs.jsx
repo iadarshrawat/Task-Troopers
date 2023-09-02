@@ -27,7 +27,7 @@ function Gigs() {
             <input type="text" placeholder='min'/>
             <input type="text" placeholder='max'/>
             <button>Apply</button>
-          </div>
+          </div> 
           <div className="right">
             <span className='sortBy'>SortBy</span>
             <span className='sortType'>{sort==='sales' ? "Best Selling":"Newest"}</span>
