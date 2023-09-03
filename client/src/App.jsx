@@ -10,6 +10,8 @@ import Orders from "../pages/orders/Orders"
 import Messages from "../pages/messages/Messages"
 import Message from "../pages/message/Message"
 import MyGigs from "../pages/myGigs/MyGigs"
+import Login from "../pages/login/Login"
+import Register from "../pages/register/Register"
 
 
 
@@ -27,42 +29,58 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: '/',
+      path: "/",
       element: <Layout />,
-      children:[
+      children: [
         {
-          path:'/',
-          element:<Home/>
+          path: "/",
+          element: <Home />,
         },
         {
-          path:'/gigs',
-          element:<Gigs/>
+          path: "/gigs",
+          element: <Gigs />,
         },
         {
-          path:'/gig/:id',
-          element:<Gig/>
+          path: "/myGigs",
+          element: <MyGigs />,
         },
         {
-          path:'/orders',
-          element:<Orders/>
+          path: "/orders",
+          element: <Orders />,
         },
         {
-          path:'/mygigs',
-          element:<MyGigs/>
+          path: "/messages",
+          element: <Messages />,
         },
         {
-          path:'/add',
-          element:<Add/>
+          path: "/message/:id",
+          element: <Message />,
         },
         {
-          path:'/messages',
-          element:<Messages/>
+          path: "/add",
+          element: <Add />,
         },
         {
-          path:'/message/:id',
-          element:<Message/>
+          path: "/gig/:id",
+          element: <Gig />,
         },
-      ]
+        {
+          path: "/register",
+          element: <Register />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
+        },
+        {
+          path: "/pay/:id",
+          // element: <Pay />,
+        },
+        {
+          path: "/success",
+          // element: <Success />,
+        },
+      ],
     }
   ])
 

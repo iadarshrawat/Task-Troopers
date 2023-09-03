@@ -1,15 +1,24 @@
 import React, { useState } from 'react'
 import "./Navbar.scss"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import newRequest from '../../utils/newRequest';
 
 function Navbar() {
 
+    const navigate = useNavigate();
+
     const [open, setOpen] = useState(false);
 
-    const currentUser = {
-        id:1,
-        usename:"john Doe",
-        isSeller:true
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+
+    const handleLogout = async ()=>{
+        try {
+            await newRequest.post('/auth/logout');
+            localStorage.setItem('currentUser', null);
+            Navigate('/')
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
@@ -30,8 +39,8 @@ function Navbar() {
                     {!currentUser && <button>Join</button>}
                     {currentUser && (
                         <div className="user" onClick={()=>setOpen(!open)}>
-                            <img src="" alt="" />
-                            <span>{currentUser.usename}</span>
+                            <img src={currentUser.img || './img/noavtar.jpeg'} alt="" />
+                            <span>{currentUser.username}</span>
                             { open && (
                                 <div className="option">
                                 {currentUser?.isSeller && (
@@ -42,7 +51,7 @@ function Navbar() {
                                 )}  
                                 <Link className='link' to='orders'>Orders</Link>                            
                                 <Link className='link' to='messages'>Messages</Link>                            
-                                <Link className='link' to='/'>Logout</Link>                            
+                                <Link className='link' onClick={handleLogout}>Logout</Link>                            
                             </div>
                             )}
                         </div>
