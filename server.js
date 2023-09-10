@@ -10,8 +10,12 @@ import gigRoute from "./routes/gig.route.js";
 import authRoute from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import morgan from "morgan";
 
 const app = express();
+
+app.use(morgan('dev'));
+
 dotenv.config();
 mongoose.set("strictQuery", true);
 

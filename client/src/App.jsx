@@ -12,18 +12,25 @@ import Message from "../pages/message/Message"
 import MyGigs from "../pages/myGigs/MyGigs"
 import Login from "../pages/login/Login"
 import Register from "../pages/register/Register"
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query'
 
-
+const queryClient = new QueryClient()
 
 function App() {
 
   const Layout = () => {
     return (
-      <div className="app">
-        <Navbar />
-        <Outlet />
-        <Footer />
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <div className="app">
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </div>
+      </QueryClientProvider>
     )
   }
 

@@ -31,13 +31,13 @@ function Register() {
     e.preventDefault();
     const url = await upload(file);
     try {
+      alert("hello")
       await newRequest.post('/auth/register', {
         ...user,
         img:url
       })
-      // navigate('/');
-    } catch (error) {
-      
+      navigate('/login');
+    } catch (error) {      
     }
   }
 
@@ -46,11 +46,10 @@ function Register() {
     setUser((prev)=>{
       return {...prev, isSeller: e.target.checked}
     })
-
   }
   return (
     <div className="register">
-      <form onSubmit={handleSubmit}>
+      <form >
         <div className="left">
           <h1>Create a new account</h1>
           <label htmlFor="">Username</label>
@@ -78,11 +77,11 @@ function Register() {
             placeholder="Usa"
             onChange={handleChange}
           />
-          <button type="submit">Register</button>
+          <button onClick={handleSubmit}>Register</button>
         </div>
         <div className="right">
           <h1>I want to become a seller</h1>
-          <div className="toggle">
+          <div className="toggle"> 
             <label htmlFor="">Activate the seller account</label>
             <label className="switch">
               <input type="checkbox" onChange={handleSeller} />

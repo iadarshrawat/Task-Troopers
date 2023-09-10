@@ -1,17 +1,42 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState,} from 'react'
 import './Gigs.scss'
-import { gigs } from '../../src/data';
 import GigCard from '../../components/gigCard/GigCard';
+import newRequest from '../../utils/newRequest';
+import { useQuery } from '@tanstack/react-query';
+import {useLocation } from 'react-router-dom';
 
 function Gigs() {
 
   const [sort, setSort] = useState("sales")
   const [open, setOpen] = useState(false);
+  const minRef = useRef();
+  const maxRef = useRef();
+
+  const {search} = useLocation();
+  console.log(useLocation())
+
+  const { isLoading, error, data, refetch } = useQuery({
+    queryKey: ['gigs'],
+    queryFn: () =>
+      newRequest.get(`/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`).then(res=>{
+        return res.data;
+      })
+  })
+  console.log(data);
 
   const reSort = (type)=>{
     setSort(type);
     setOpen(false);
   }
+
+  useEffect(()=>{
+    refetch();
+  }, [sort])
+
+  const apply = ()=>{
+    refetch();
+  }
+
 
   return (
     <div className='gigs'>
@@ -24,9 +49,9 @@ function Gigs() {
         <div className="menu">
           <div className="left">
             <span>BUDGET</span>
-            <input type="text" placeholder='min'/>
-            <input type="text" placeholder='max'/>
-            <button>Apply</button>
+            <input type="text" placeholder='min' ref={minRef}/>
+            <input type="text" placeholder='max' ref={maxRef}/>
+            <button onClick={apply}>Apply</button>
           </div> 
           <div className="right">
             <span className='sortBy'>SortBy</span>
@@ -41,7 +66,7 @@ function Gigs() {
           </div>
         </div>
         <div className="cards">
-          {gigs.map(gig=>(
+          {isLoading ? "loading": error ? "something wents wrong!" : data.map(gig=>(
             <GigCard key={gig.id} item={gig}/>
           ))}
         </div>
