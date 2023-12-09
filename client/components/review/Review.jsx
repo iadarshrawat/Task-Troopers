@@ -7,7 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 function Review({review}) {
 
   const { isLoading, isError, data, error } = useQuery({
-    queryKey: ["reviewUser"],
+    queryKey: [review.userId],
     queryFn: () =>
       newRequest.get(`/users/${review.userId}`).then((res) => {
         return res.data;
