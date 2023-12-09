@@ -20,8 +20,6 @@ function Register() {
 
   const navigate = useNavigate();
 
-  console.log(user);
-
   const handleChange = (e)=>{
     setUser((prev)=>{
       return {...prev, [e.target.name]: e.target.value};

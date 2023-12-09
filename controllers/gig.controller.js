@@ -15,7 +15,6 @@ export const createGig = async (req, res, next)=>{
     } catch (error) {
         next(error)
     }
-
 }
 export const deleteGig = async (req, res, next)=>{
     try {

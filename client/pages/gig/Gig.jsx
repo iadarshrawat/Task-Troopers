@@ -4,6 +4,7 @@ import { Slider } from "infinite-react-carousel/lib";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import newRequest from "../../utils/newRequest";
+import Reviews from "../../components/reviews/Reviews";
 
 function Gig() {
 
@@ -135,7 +136,7 @@ function Gig() {
           <div className="reviews">
             <h2>Reviews</h2>
             <div className="item">
-              <div className="user">
+              {/* <div className="user">
                 <img
                   className="pp"
                   src="https://images.pexels.com/photos/839586/pexels-photo-839586.jpeg?auto=compress&cs=tinysrgb&w=1600"
@@ -261,7 +262,9 @@ function Gig() {
                 <span>Yes</span>
                 <img src="/img/dislike.png" alt="" />
                 <span>No</span>
-              </div>
+              </div> */}
+              <Reviews gigId={id}/>
+              {console.log(id)}
             </div>
           </div>
         </div>
