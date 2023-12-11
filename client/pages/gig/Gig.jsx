@@ -264,7 +264,6 @@ function Gig() {
                 <span>No</span>
               </div> */}
               <Reviews gigId={id}/>
-              {console.log(id)}
             </div>
           </div>
         </div>
