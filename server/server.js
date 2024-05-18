@@ -53,16 +53,16 @@ app.use("/api/reviews", reviewRoute);
 app.use(express.static(path.join(__dirname, './client/dist')))
 
 
-// app.use((err, req, res, next) => {
-//   const errorStatus = err.status || 500;
-//   const errorMessage = err.message || "Something went wrong!";
+app.use((err, req, res, next) => {
+  const errorStatus = err.status || 500;
+  const errorMessage = err.message || "Something went wrong!";
 
-//   return res.status(errorStatus).send(errorMessage);
-// });
+  return res.status(errorStatus).send(errorMessage);
+});
 
-app.use('*', function(req, res){
-  res.sendFile(path.join(__dirname, './client/dist/index.html'));
-})
+// app.use('*', function(req, res){
+//   res.sendFile(path.join(__dirname, './client/dist/index.html'));
+// })
 
 app.listen(8800, () => {
   connect();
